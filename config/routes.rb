@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/auth/twitter/callback", to: "omniauth_callbacks#twitter"
 
   resources :twitter_accounts #create all methods
+  resources :tweets
 
   root to: "main#index"
 
