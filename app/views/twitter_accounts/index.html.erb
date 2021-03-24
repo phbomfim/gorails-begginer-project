@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center justify-content-between">
+    <h1>Twitter Accounts</h1>
+    <%= link_to "Connect a Twitter account", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+</div>
+
+<% @twitter_accounts.each do |twitter_account| %>
+    <div class="d-flex align-items-center mb-4">
+        <div class="me-4">
+            <%= image_tag twitter_account.image, class: "rounded-circle" %>
+            <%= link_to "@#{twitter_account.name}", "https://twitter.com/#{twitter_account.username}", target: :_blank %>
+        </div>
+
+        <%# This button/link bellow is the same tor say /twitter_acounts/ID
+            At this case, we need destroy the actual session
+            So the method to HTTP is DELETE.
+            This line will pass to server a DELETE request to ID
+        %>
+        <%= button_to "Disconnect", twitter_account, method: :delete, data: { confirm: "Are you sure?"} %>
+
+    </div>
+<% end %>
