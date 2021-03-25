@@ -24,7 +24,7 @@
     <!-- .persisted? = verify if that form already exist in database, so it'll show only edit.html.erb-->
 
     <% if form.object.persisted? %>
-        <%= button_to "Delete", form.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+        <%= link_to "Delete", form.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     <% end %>
 
 <% end %>
